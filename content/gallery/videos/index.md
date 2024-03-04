@@ -33,8 +33,17 @@ mediaItems:
     src: a44f8ad0302a9965ed680a8f5d1cd07a.jpg
     show_video_player: true
     video_src: /videos/hut_blocking_eevee-1080p.mp4
+  - phototitle: test
+    alt: ''
+    description: test
+    weight: 0
+    src: wvdc_cambodja_1.40.1.jpg
+    show_video_player: true
+    video_src: /videos/SOC_2F240218_WVDC2_TRAILER.mp4
 
 ---
+
+
 
 
 
