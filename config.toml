@@ -5,7 +5,7 @@ disableKinds = [
   "taxonomy",
   "term"
 ]
-baseURL = ""
+baseURL = "https://mipmip.github.io/hugo-theme-yaviga/"
 
 [services]
 
@@ -25,11 +25,11 @@ showBreadCrum = false
 
     [[params.header.links]]
     name = "Cats"
-    url = "/gallery/cats"
+    url = "/hugo-theme-yaviga/gallery/cats/"
 
     [[params.header.links]]
     name = "Video's"
-    url = "/gallery/videos"
+    url = "/hugo-theme-yaviga/gallery/videos"
 
     [[params.header.links]]
     name = "About"

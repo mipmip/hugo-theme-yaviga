@@ -73,7 +73,7 @@
                   {{ $videofile := "" }}
                   {{ if .show_video_player}}
                   {{ $videoclass = " video" }}
-                  {{ $videofile = .video_src }}
+                  {{ $videofile = printf "%s%s" $.Site.BaseURL  .video_src }}
                   {{end}}
 
                   <a class="gallery-item{{ $videoclass }}" data-mfp-src="{{$videofile}}" phototitle="{{ .phototitle }}"
