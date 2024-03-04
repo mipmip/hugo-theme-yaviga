@@ -32,3 +32,10 @@
           type: image-select
           path: "/assets/gallery"
           buttonTitle: Select Image
+
+        - key: show_video_player
+          type: boolean
+
+        - key: video_src
+          title: Video
+          type: string

@@ -68,7 +68,15 @@
                     <a href="{{ .link }}" class="link" tabindex="0"><img src="{{ .thumb.RelPermalink }}" alt="{{ .title }}"></a>
                     <h2>{{ .title }}</h2>
                 {{- else }}
-                    <a class="gallery-item" phototitle="{{ .phototitle }}"
+
+                  {{ $videoclass := "" }}
+                  {{ $videofile := "" }}
+                  {{ if .show_video_player}}
+                  {{ $videoclass = " video" }}
+                  {{ $videofile = .video_src }}
+                  {{end}}
+
+                  <a class="gallery-item{{ $videoclass }}" data-mfp-src="{{$videofile}}" phototitle="{{ .phototitle }}"
                       style="background-image:url({{ .thumb.RelPermalink }}); "
                             {{ printf "description='%s'" (.description | markdownify) | safeHTMLAttr }}
                             gallery_index="{{ .index }}"

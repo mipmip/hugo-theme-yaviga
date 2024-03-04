@@ -105,6 +105,8 @@
 
         {{- $new_img := dict
           "type" "image"
+          "show_video_player" $elem_val.show_video_player
+          "video_src" $elem_val.video_src
           "image" $imageobj
           "thumb" $thumb
           "full" $full

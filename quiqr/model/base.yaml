@@ -1,0 +1,136 @@
+hugover: extended_0.90.1
+serve:
+  - key: default
+    config: config.toml
+build:
+  - key: default
+    config: config.toml
+menu:
+  - key: content
+    title: Content
+    menuItems:
+      - key: galleries
+      - key: videos
+
+  - key: settings
+    title: Settings
+    menuItems:
+      - key: mainConfig
+
+
+
+singles:
+
+  - key: videos
+    title: Video's
+    hidePreviewIcon: true
+    hideExternalEditIcon: true
+    hideSaveButton: true
+    file: static/.pogo-downloads.md
+    fields:
+      - key: file
+        type: bundle-manager
+        path: "/static/videos"
+        extensions:
+          - mp4
+          - mov
+          - gif
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+
+  - key: mainConfig
+    title: Site Configuration
+    file: config.toml
+    fields:
+
+      - key: title
+        title: Site Title
+        type: string
+        tip: Your page title.
+
+      - key: baseURL
+        title: Base URL
+        type: string
+        tip: Your site URL.
+
+      - key: params
+        type: pull
+        fields:
+
+          - key: description
+            type: string
+
+          - key: showBreadCrum
+            title: Show Breadcrum
+            type: boolean
+
+          - key: images_downloadable
+            title: Media Downloadable
+            type: boolean
+
+          - key: header
+            type: pull
+            fields:
+              - key: links
+                title: menu
+                type: accordion
+                fields:
+                  - key: name
+                    type: string
+                    arrayTitle: true
+                  - key: url
+                    type: string
+
+          - key: author
+            type: section
+            fields:
+              - type: string
+                key: name
+
+              - type: string
+                key: email
+
+          - key: footer
+            type: pull
+            fields:
+
+              - key: paragraph
+                type: nest
+                fields:
+                  - key: headline
+                    type: string
+                  - key: text
+                    type: string
+                    multiLine: true
+
+              - key: social
+                type: nest
+                fields:
+                  - key: headline
+                    type: string
+                  - key: links
+                    type: accordion
+                    fields:
+                      - key: label
+                        type: string
+                        arrayTitle: true
+                      - key: url
+                        type: string
+                      - key: icon
+                        type: string
+
+              - key: copyright
+                type: pull
+                fields:
+                  - key: name
+                    title: copyright
+                    type: string
+
+              - key: contact
+                title: contactForm
+                type: nest
+                fields:
+                  - key: hide
+                    type: boolean

@@ -233,11 +233,56 @@
                             return caption;
                         },
                     },
+
+                    iframe: {
+                        titleSrc: function(item) {
+                            let caption = '';
+                            if(item.el.attr("downloadable") == "true"){
+                                caption += '<div title="Download" ' +
+                                    'class="download-button"><a href="' +
+                                    item.el.attr("download_file") + '" download="' +
+                                    item.el.attr("orig_name") +
+                                    '"><i class="fa fa-download"></i></a></div>';
+                            }
+                            caption += '<div class="caption-surround">';
+                            if( item.el.attr("phototitle") != "" ) {
+                                caption += "<h2>" + item.el.attr("phototitle") + "</h2>";
+                            }
+                            if( item.el.attr("description") != "" ) {
+                                caption += '<div class="description">' +
+                                    item.el.attr("description") + "</div>";
+                            }
+                            let tax_elem = item.el.parent().find(".caption_tax");
+                            if( tax_elem.length > 0 ) {
+                                caption += tax_elem[0].outerHTML;
+                            }
+                            caption += "</div>";
+                            return caption;
+                        },
+                    },
                     gallery:{
                         enabled:true,
                         arrowMarkup: '<button title="%title%" class="nav-%dir%"></button>',
                     },
                     callbacks: {
+
+                    elementParse: function(item) {
+                      console.log(item.el[0].className);
+                      console.log(item.el);
+                      if(item.el[0].className == 'gallery-item video') {
+                        item.type = 'iframe'
+                      } else {
+                         item.type = 'image',
+                         item.tLoading = 'Loading image #%curr%...',
+                         item.mainClass = 'mfp-img-mobile',
+                         item.image = {
+                           tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+                         }
+                      }
+
+                    },
+
+
                         change: function() {
                             // Replace the current history state with a URL with
                             // a new hash part.  The hash part tells the site to load
